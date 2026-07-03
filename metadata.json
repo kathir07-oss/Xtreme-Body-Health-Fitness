@@ -1,0 +1,6 @@
+{
+  "name": "Xtreme Body Health and Fitness",
+  "description": "Premium gym website in Rajapalayam, Tamil Nadu featuring membership plans, trainer profiles, success stories, high-quality gallery, lead capture, and Google Maps integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

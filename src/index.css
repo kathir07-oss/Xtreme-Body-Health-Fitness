@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Barlow Condensed", sans-serif;
+
+  --color-brand-red: #C41230;
+  --color-brand-orange: #FF4D00;
+  --color-brand-black: #080808;
+  --color-brand-steel: #141414;
+  --color-brand-panel: #1a1a1a;
+}
+
+/* Infinitely Scrolling Ticker Animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+/* Custom Barbell Lifting Motion */
+@keyframes lift {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-28px) rotate(1.5deg); }
+}
+
+/* Float Animation for Gym Equipment SVGs */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Custom scrollbar overrides */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #C41230 #080808;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #C41230;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4D00;
+}
