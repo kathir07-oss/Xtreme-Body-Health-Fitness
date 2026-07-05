@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Ticker from './components/Ticker';
@@ -11,6 +12,7 @@ import Gallery from './components/Gallery';
 import FAQ from './components/FAQ';
 import ContactForm from './components/ContactForm';
 import GoogleMap from './components/GoogleMap';
+import NexoraPromo from './components/NexoraPromo';
 import WhatsAppButton from './components/WhatsAppButton';
 import { Sparkles, HeartPulse, Award, MessageCircle, MapPin, Phone, Shield, Mail, Instagram } from 'lucide-react';
 
@@ -81,45 +83,117 @@ export default function App() {
 
       {/* Main Sections Flow */}
       <main>
-        {/* 1. Hero Section with 3D Wireframe Simulation */}
-        <Hero
-          onScrollToSection={handleScrollToSection}
-          onJoinNow={handleJoinNow}
-          onStartPlan={handleStartPlan}
-        />
+        {/* 1. Hero Section with 3D Wireframe Simulation (Animate on load) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Hero
+            onScrollToSection={handleScrollToSection}
+            onJoinNow={handleJoinNow}
+            onStartPlan={handleStartPlan}
+          />
+        </motion.div>
 
         {/* Dynamic Specializations Ticker */}
         <Ticker />
 
         {/* 2. Services Section */}
-        <Services />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "-30px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Services />
+        </motion.div>
 
         {/* Dynamic Lifting Gym Animation */}
-        <GymAnimation />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <GymAnimation />
+        </motion.div>
 
         {/* 3. Membership Plans Section */}
-        <MembershipPlans onSelectPlan={handleSelectPlan} />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "-30px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <MembershipPlans onSelectPlan={handleSelectPlan} />
+        </motion.div>
 
         {/* 4. Trainer Profiles Section */}
-        <TrainerProfiles />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "-30px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <TrainerProfiles />
+        </motion.div>
 
         {/* 5. Success Stories with interactive Before/After sliders */}
-        <SuccessStories />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "-30px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <SuccessStories />
+        </motion.div>
 
         {/* 6. Gym Arena Gallery */}
-        <Gallery />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "-30px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Gallery />
+        </motion.div>
 
         {/* 7. Frequently Asked Questions Accordion */}
-        <FAQ />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "-30px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <FAQ />
+        </motion.div>
 
         {/* 8. Booking & Lead Capture Section */}
-        <ContactForm
-          selectedPlanId={selectedPlanId}
-          onLeadAdded={() => setLeadRefreshKey((k) => k + 1)}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "-30px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <ContactForm
+            selectedPlanId={selectedPlanId}
+            onLeadAdded={() => setLeadRefreshKey((k) => k + 1)}
+          />
+        </motion.div>
 
         {/* 8. Integrated Google Map of Gym Location */}
-        <GoogleMap />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "-30px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <GoogleMap />
+        </motion.div>
+
+        {/* 9. Nexora Studio Promotional Campaign */}
+        <NexoraPromo />
       </main>
 
       {/* Footer Section */}
@@ -247,14 +321,27 @@ export default function App() {
           </div>
 
           {/* Footer Bottom Credentials and Disclaimer */}
-          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-white/5">
             <p className="text-[10px] text-gray-600 font-sans tracking-wide">
               © {new Date().getFullYear()} XTREME BODY HEALTH AND FITNESS — All rights reserved.
             </p>
             
-            <div className="flex items-center gap-4 text-[10px] text-gray-500 font-sans">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-[10px] text-gray-500 font-sans">
               <span className="uppercase tracking-widest text-gray-600">
                 Rajapalayam, India
+              </span>
+              <span className="text-gray-700 hidden sm:inline">|</span>
+              <span className="text-gray-500 text-center sm:text-right">
+                This website is created by{' '}
+                <a 
+                  href="https://nexora-studio-jet.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-brand-orange hover:text-brand-red font-bold transition-all duration-300 underline underline-offset-2 decoration-brand-orange/30 hover:decoration-brand-red/60"
+                >
+                  Nexora Studio
+                </a>{' '}
+                (WEB CREATION COMPANY)
               </span>
             </div>
           </div>
